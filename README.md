@@ -121,9 +121,9 @@ Benjamin Franklin
 >>> Benjamin Franklin`s birthday is 01/17/1706.
 
 ```
+
 ```python
 # Question 1
-import json
 birthdays = {"People": {
     "Albert Einstein": "March 14, 1879",
     "Benjamin Franklin": "January 17, 1706",
@@ -137,6 +137,7 @@ for key in birthdays["People"]:
 person = str(input("Who's birthday do you want to look up?\n"))
 print(person+"'s birthday is "+birthdays["People"].get(person))
 ```
+
 Modify your program from Question 1 of this section to load the birthday dictionary from a JSON file on disk, rather than having the dictionary defined in the program. Finally, ask the user for another scientist’s name and birthday to add to the dictionary, and update the JSON file you have on disk with the scientist’s name. If you run the program multiple times and keep adding new names, your JSON file should keep getting bigger and bigger.
 
 ```python
@@ -154,23 +155,26 @@ with open("birthdays.json" , "w") as outfile:
     json.dump(birthdays,outfile,indent=4)
     outfile.close()
 ```
+
 ```json
 {
-    "People": {
-        "Albert Einstein": "March 14, 1879",
-        "Benjamin Franklin": "January 17, 1706",
-        "Ada Lovelace": "December 10, 1815",
-        "Jane Foster": "July 27, 2022",
-        "Abdulrehman ajmal": "March 8, 2020"
-    }
+  "People": {
+    "Albert Einstein": "March 14, 1879",
+    "Benjamin Franklin": "January 17, 1706",
+    "Ada Lovelace": "December 10, 1815",
+    "Jane Foster": "July 27, 2022",
+    "Abdulrehman ajmal": "March 8, 2020"
+  }
 }
 ```
 
 We saved information about famous scientists’ names and birthdays to disk. Now we load that JSON file from disk, extract the months of all the birthdays, and count how many scientists have a birthday in each month. (Hint: Use counter from the collections module.)
-Your program should output something like: 
+Your program should output something like:
+
 ```bash
 {"May": 3,"November": 2,"December": 1}
 ```
+
 ```python
 # Question 3
 import json
@@ -187,9 +191,11 @@ for key in birthdays["People"]:
 
 print(Counter(months))
 ```
+
 ```bash
 Counter({'March': 2, 'January': 1, 'December': 1, 'July': 1})
 ```
+
 ## You have a list:
 
 a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]. Write one line of Python that takes this list a and makes a new list that has only the even elements of this list in it.
@@ -201,3 +207,65 @@ print("Even :",list(filter(lambda num: num % 2 == 0, numbers)))
 ```bash
 Even: [4, 16, 36, 64, 100]
 ```
+## Control Flow
+### What is the difference between 10 / 3 and 10 // 3?
+10/3 is called divison and 10//3 is called floor divission. "//" this operator neglects the values after the decimal point.
+``` bash
+Result of 10/3: 3.3333333333333335
+Result of 10//3: 3
+```
+### What is the result of 10 ** 3?
+Double asterisks (\*\*) operator is used for taking exponent also known as power. 
+```bash
+Result : 1000
+```
+### Given (x = 1), what will be the value of after we run (x += 2)?
+x = 1 after the operation 2 will be added into x which will give the output as shown.
+```bash
+Value : 3
+```
+### How can we round a number?
+By using a built in function called Round() it takes 2 parameters number to round off and number of digits to round off.
+```bash
+Rounded value : 3.56
+```
+
+### What is the result of float(1)?
+```bash
+float(1) : 1.0
+```
+### What is the result of bool(“False”)?
+```bash
+bool(“False”) : True
+```
+### What are the falsy values in Python?
+- The number zero (0)
+- An empty string ''
+- False
+- None
+- An empty list []
+- An empty tuple ()
+- An empty dictionary {}
+### What is the result of 10 == “10”?
+```bash
+(10 == "10") : False
+```
+### What is the result of “bag” > “apple”?
+```bash
+("bag">"apple") : True
+```
+### What is the result of not(True or False)?
+```bash
+not(True or False) : False
+```
+### Under what circumstances does the expression 18 <= age < 65 evaluate to True?
+This expressen will always return true value if the value of age is greater than or equal 18 and smaller than 65.
+### What does range(1, 10, 2) return?
+```bash
+<class 'range'>, range(1, 10, 2)
+```
+### Name 3 iterable objects in Python.
+- Lists
+- Tuples
+- Dictionaries
+- Sets
