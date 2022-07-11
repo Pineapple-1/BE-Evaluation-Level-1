@@ -9,3 +9,9 @@ print(10=="10")
 print("bag">"apple")
 print(type(range(1, 10, 2)))
 print(not(True or False))
+
+
+if ("a" in "a@a.com"):
+    print("not error")
+else:
+    print("error")
