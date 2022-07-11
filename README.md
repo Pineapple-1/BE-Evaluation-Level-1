@@ -422,6 +422,16 @@ Third Box Item Count: 11
 
 ## Docker
 ### Compare different kinds of docker image families. Alpine, Slim, Stretch, Buster, Jessie, Bullseye. What does this mean? How are they different? What advantage do they provide over the others?
-### Difference between Entrypoint and CMD directive in a Dockerfile?
-### Explain this command written inside a Dockerfile:RUN mkdir /app/django/helloworld
-### Explain the concept of layering in Docker images/containers?
+Stretch buster jessie bullseye are code names for the version of debian releases bullseye is the currently stable build stretch, buseter and jessie are considred as obsolete. Choose one of these images if your code is compatible with a specific version of the Debian operating system. Older versions of Debian when starting a new project are rarely used.
+
+Slim image is the paired down version of the fullimage this installs the minimal packges needed to run the project. This version saves the space.
+
+Alpine image is the most smallest images. It is best to use apline images if there is a constraint on container space. These are the most varients of images due to their small size but now teams are moving away because of compatibility issues and it is much harder to debug. Alpine images have a disadvantage over some libraires it is not compatible with image as it uses the slimer varients of libraires.
+## Difference between Entrypoint and CMD directive in a Dockerfile?
+There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect. The main purpose of a CMD is to provide defaults for an executing container which can be overriden. Entrypoint can not be overriden once specified in the docker file.
+
+## Explain this command written inside a Dockerfile:RUN mkdir /app/django/helloworld
+This command is making a folder in the specified path which is named as helloworld.
+## Explain the concept of layering in Docker images/containers?
+
+Basically, a layer, or image layer is a change on an image, or an intermediate image. Every command you specify (FROM, RUN, COPY, etc.) in your Dockerfile causes the previous image to change, which creates a new layer. You can think of it as staging changes when you're using git: You add a file's change, then another one, then another one.
